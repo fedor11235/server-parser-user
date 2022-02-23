@@ -22,19 +22,36 @@
       </td>
     </table>
 
-    <button v-for="(shopTitle, index) in endjson" :key="index" >{{ shopTitle.shop }}</button>
 
-      <br><br>
+    <!--
+    <h1>{{genres}}</h1>
+    -->
 
-    <select v-model="active">
-      <option v-for="(shopTitle, index) in endjson" :key="index" >{{ shopTitle.shop }}</option>
-    </select>
+    <label v-for="(genre, index) in genres" :key="index" >
+      <input type="radio" name="type" :value="genre" v-model="filtreGenres">
+      {{ genre }}
+    </label>
 
-      <br><br>
+    <label>
+      <input type="radio" name="type" value="Любой" v-model="filtreGenres">
+      Любой
+    </label>
 
-    <label v-for="(shopTitle, index) in endjson" :key="index" >
-      <input type="radio" name="type" :value="shopTitle.shop" v-model="active">
-      {{ shopTitle.shop }}
+    <br><br>
+
+    <label>
+      <input type="radio" name="type" value="1" v-model="filtreBeard">
+      Автор с бородой
+    </label>
+
+    <label>
+      <input type="radio" name="type" value="0" v-model="filtreBeard">
+      Автор без бороды
+    </label>
+
+    <label>
+      <input type="radio" name="type" value="Любой" v-model="filtreBeard">
+      Любой
     </label>
 
   </div>
@@ -51,6 +68,8 @@ export default {
     return {
       prices: api.prices,
       authors: api.books.authors,
+      filtreGenres: null,
+      filtreBeard: null,
     }
   },
 
@@ -75,18 +94,48 @@ export default {
             }
           ]}) 
       }
+      if(this.filtreGenres){
+        for(const elems of resultArr){
+          elems.books = elems.books.filter(e=>{
+            if(this.filtreGenres==='Любой') return e
+            else if(e.info.genre.includes(this.filtreGenres)) return e
+          })
+        }
+
+      }
+
+      if(this.filtreBeard){
+        for(const elems of resultArr){
+          elems.books = elems.books.filter(e=>{
+            if(this.filtreBeard==='Любой') return e
+            else if(e.info.beard=== Number(this.filtreBeard)) return e
+          })
+        }
+
+      }
       return resultArr
-    }
+    },
+
+    genres: function (){
+      let resultArr=[]
+      for(const elem of this.authors){
+        elem.books.forEach(elem => {
+          resultArr.push(...elem.genre.split(', '))
+        })   
+      }
+      resultArr = [...new Set(resultArr)]
+      return resultArr
+    },
+
   },
 
   methods: {
-
     bookTitle(arr2, book_id){
       let result
       for(const elem of arr2){
 
         elem.books.forEach(e=>{
-          if(e.id===book_id) result = {'title': e.title, 'genre': e.genre}
+          if(e.id===book_id) result = {'title': e.title, 'genre': e.genre.split(', '),'beard':elem.beard}
         })
       }
       return result
