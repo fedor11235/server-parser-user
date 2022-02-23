@@ -1,0 +1,93 @@
+[
+
+	{
+		"price_id": 1,
+		"shop": "Библиоглобус",
+		"book_id": 1,
+		"price": 100
+	},
+	{
+		"price_id": 2,
+		"shop": "Библиоглобус",
+		"book_id": 2,
+		"price": 200
+	},
+	{
+		"price_id": 3,
+		"shop": "Библиоглобус",
+		"book_id": 3,
+		"price": 300
+	},
+	{
+		"price_id": 4,
+		"shop": "Библиоглобус",
+		"book_id": 4,
+		"price": 400
+	},
+	{
+		"price_id": 5,
+		"shop": "Библиоглобус",
+		"book_id": 5,
+		"price": 500
+	},
+	{
+		"price_id": 6,
+		"shop": "Дом книги",
+		"book_id": 1,
+		"price": 111
+	},
+	{
+		"price_id": 7,
+		"shop": "Дом книги",
+		"book_id": 2,
+		"price": 222
+	},
+	{
+		"price_id": 8,
+		"shop": "Дом книги",
+		"book_id": 3,
+		"price": 333
+	},
+	{
+		"price_id": 9,
+		"shop": "Дом книги",
+		"book_id": 4,
+		"price": 444
+	},
+	{
+		"price_id": 10,
+		"shop": "Дом книги",
+		"book_id": 5,
+		"price": 555
+	},
+	{
+		"price_id": 11,
+		"shop": "Читай-город",
+		"book_id": 1,
+		"price": 99
+	},
+	{
+		"price_id": 12,
+		"shop": "Читай-город",
+		"book_id": 2,
+		"price": 199
+	},
+	{
+		"price_id": 13,
+		"shop": "Читай-город",
+		"book_id": 3,
+		"price": 299
+	},
+	{
+		"price_id": 14,
+		"shop": "Читай-город",
+		"book_id": 4,
+		"price": 399
+	},
+	{
+		"price_id": 15,
+		"shop": "Читай-город",
+		"book_id": 5,
+		"price": 499
+	}
+]
