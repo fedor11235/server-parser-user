@@ -12,9 +12,9 @@ export default {
 
     methods: {
         changePrice(event, id){
-        this.prices.forEach(e => {
-            if (e.price_id===id){
-            e.price=event.path[1].firstChild.value
+        this.prices.forEach(price => {
+            if (price.price_id===id){
+            price.price=event.path[1].firstChild.value
             }
         })
         alert('save price')
